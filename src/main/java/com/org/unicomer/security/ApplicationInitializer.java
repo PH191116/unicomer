@@ -13,7 +13,7 @@ public class ApplicationInitializer
         return new String[0];
     }
     @Override
-    protected Filter[] getServletFilters() {
+    protected jakarta.servlet.Filter[] getServletFilters() {
         DelegatingFilterProxy delegateFilterProxy = new DelegatingFilterProxy();
         delegateFilterProxy.setTargetBeanName("loggingFilter");
         return new Filter[]{delegateFilterProxy};
