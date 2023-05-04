@@ -28,8 +28,7 @@ public class DataSourceConfig {
         dataSource.setUsername(env.getProperty("spring.datasource.username"));
         dataSource.setPassword(env.getProperty("spring.datasource.password"));
 
-        return dataSource;
-    }
+        return dataSource;    }
     @Bean(name = "guatemalaDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.guatemala")
     public DataSource guatemalaDataSource() {

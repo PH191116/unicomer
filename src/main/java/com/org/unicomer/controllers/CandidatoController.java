@@ -42,7 +42,7 @@ public class CandidatoController {
                 if (candidatoService.createCandidato(candidato, country).isPresent())
                     return ResponseEntity.ok(candidatoService.createCandidato(candidato, country).get());
                 else
-                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(candidatoService.createCandidato(candidato, country).get());
+                    return UtilResponse.generarResponse(HttpStatus.BAD_REQUEST, "Candidato no creado... Intente más tarde");
         }catch (Exception e){
             log.error("Exeception... Error al crear candidato"+e.getMessage());
             e.printStackTrace();

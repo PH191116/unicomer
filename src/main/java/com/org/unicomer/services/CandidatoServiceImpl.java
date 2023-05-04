@@ -7,6 +7,7 @@ import com.org.unicomer.repository.jamaica.ICandidatoJMRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,9 +36,11 @@ public class CandidatoServiceImpl implements ICandidatoService {
         } else if (country.equalsIgnoreCase("Guatemala")) {
              candidatos = candidatoGuatemalaRepository.findAll();
             return candidatos;
-        }else{
+        }else if (country.equalsIgnoreCase("Jamaica")){
              candidatos = candidatoJamaicaRepository.findAll();
             return candidatos;
+        }else{
+            return Arrays.asList();
         }
     }
 
