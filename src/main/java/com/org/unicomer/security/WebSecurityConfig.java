@@ -18,7 +18,7 @@ public class WebSecurityConfig {
                     .authorizeHttpRequests((authz) -> authz
                             .anyRequest().authenticated()
                     )
-                    .httpBasic(withDefaults());
+                    .httpBasic().disable();
             return http.build();
         }
 
