@@ -15,7 +15,7 @@ public class WebSecurityConfig {
 // Las vistas públicas no requieren autenticación
                     .requestMatchers("/api/**").permitAll()
 // Todas las demás URLs de la Aplicación requieren autenticación
-                    //.anyRequest().authenticated()
+                    .anyRequest().permitAll()
 // El formulario de Login no requiere autenticacion
                     .and().formLogin().permitAll();
             return http.build();
