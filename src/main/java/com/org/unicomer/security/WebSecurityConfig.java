@@ -11,12 +11,13 @@ import org.springframework.security.web.SecurityFilterChain;
 public class WebSecurityConfig {
         @Bean
         public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-            http.requiresChannel((channel) -> channel.anyRequest().requiresSecure().requestMatchers("/**").requiresInsecure());/*authorizeHttpRequests()
+            http.authorizeHttpRequests()
 // Las vistas públicas no requieren autenticación
                     .requestMatchers("/**").permitAll()
+// Todas las demás URLs de la Aplicación requieren autenticación
+                    //.anyRequest().authenticated()
 // El formulario de Login no requiere autenticacion
-                    .and().formLogin().permitAll()*/
-
+                    .and().formLogin().permitAll();
             return http.build();
         }
 
