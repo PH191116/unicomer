@@ -11,11 +11,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class WebSecurityConfig {
         @Bean
         public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-            http.authorizeHttpRequests()
-// Las vistas públicas no requieren autenticación
-                    .requestMatchers("/**").permitAll()
-// El formulario de Login no requiere autenticacion
-                    .and().formLogin().permitAll();
+            http.requiresChannel((channel) -> channel.anyRequest().requiresSecure());
             return http.build();
         }
 
