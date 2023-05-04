@@ -18,7 +18,7 @@ import java.util.Optional;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@CrossOrigin("https://unicomer-production.up.railway.app/")
+@CrossOrigin("http://unicomer-production.up.railway.app")
 @RequestMapping("/api")
 public class CandidatoController {
     private final ICandidatoService candidatoService;
