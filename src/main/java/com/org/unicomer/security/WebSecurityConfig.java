@@ -13,7 +13,7 @@ public class WebSecurityConfig {
         public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
             http.authorizeHttpRequests()
 // Las vistas públicas no requieren autenticación
-                    .requestMatchers("/**").permitAll()
+                    .requestMatchers("/api/**").permitAll()
 // Todas las demás URLs de la Aplicación requieren autenticación
                     //.anyRequest().authenticated()
 // El formulario de Login no requiere autenticacion
