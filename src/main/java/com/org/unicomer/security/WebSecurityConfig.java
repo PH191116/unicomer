@@ -12,7 +12,7 @@ public class WebSecurityConfig {
         @Bean
         public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
             http.requiresChannel((channel) -> channel.anyRequest()
-                    .requiresSecure().anyRequest());/*authorizeHttpRequests()
+                    .requiresInsecure().requestMatchers("/**"));/*authorizeHttpRequests()
 // Las vistas públicas no requieren autenticación
                     .requestMatchers("/**").permitAll()
 // El formulario de Login no requiere autenticacion
