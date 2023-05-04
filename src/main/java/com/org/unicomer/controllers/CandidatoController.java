@@ -21,6 +21,7 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class CandidatoController {
     private final ICandidatoService candidatoService;
+    @CrossOrigin("https://unicomer-production.up.railway.app/")
     @GetMapping("/")
     public ResponseEntity<Object> obtenerCandidatos(@RequestHeader("country") String country){
          try{
@@ -35,6 +36,7 @@ public class CandidatoController {
             return UtilResponse.generarResponse(HttpStatus.INTERNAL_SERVER_ERROR, "No se obtuvo comunicación... Intente más tarde");
         }
     }
+    @CrossOrigin("https://unicomer-production.up.railway.app/")
     @PostMapping("/")
     public ResponseEntity<Object> insertarCandidato(@Valid @RequestBody Candidato candidato, @RequestHeader("country") String country){
         try{
@@ -49,7 +51,7 @@ public class CandidatoController {
             return UtilResponse.generarResponse(HttpStatus.INTERNAL_SERVER_ERROR, "No se obtuvo comunicación... Intente más tarde");
         }
     }
-
+    @CrossOrigin("https://unicomer-production.up.railway.app/")
     @PutMapping("/{id}")
     public ResponseEntity<Object> actualizarCandidato(@Valid @RequestBody Candidato candidato, @RequestHeader("country") String country,
                                                         @PathVariable("id") Integer id){
